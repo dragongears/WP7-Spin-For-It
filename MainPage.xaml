@@ -4,6 +4,7 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:local="clr-namespace:SpinForIt"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:Microsoft_Phone_Controls_Maps_Overlays="clr-namespace:Microsoft.Phone.Controls.Maps.Overlays;assembly=Microsoft.Phone.Controls.Maps" 
@@ -12,13 +13,6 @@
     SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
     <phone:PhoneApplicationPage.Resources>
-        <Storyboard x:Name="Storyboard1">
-            <DoubleAnimation x:Name="SpinAni" Duration="0:0:1" To="640" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="img" d:IsOptimized="True">
-                <DoubleAnimation.EasingFunction>
-                    <PowerEase EasingMode="EaseOut"/>
-                </DoubleAnimation.EasingFunction>
-            </DoubleAnimation>
-        </Storyboard>
     </phone:PhoneApplicationPage.Resources>
  
     <!--Sample code showing usage of ApplicationBar-->
@@ -50,13 +44,7 @@
             <!--Pivot item one-->
             <controls:PivotItem Header="spinner">
                 <Grid>
-                    <Rectangle Fill="{StaticResource PhoneAccentBrush}" Stroke="Black" Width="320" HorizontalAlignment="Center" Margin="0,41,0,245" Height="320" />
-                    <Image x:Name="img" Source="" RenderTransformOrigin="0.5,0.5" ImageFailed="img_ImageFailed" Stretch="None" Tap="img_Tap" HorizontalAlignment="Center" Margin="103,71,97,0" VerticalAlignment="Top">
-                        <Image.RenderTransform>
-                            <CompositeTransform x:Name="MyTransform"/>
-                        </Image.RenderTransform>
-                    </Image>
-
+                    <local:Spinner x:Name="MySpinner" Tap="MySpinner_Tap" VerticalAlignment="Center" HorizontalAlignment="Center" Width="320" Height="320"/>
                 </Grid>
             </controls:PivotItem>
 
